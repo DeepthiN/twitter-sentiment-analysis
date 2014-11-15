@@ -19,15 +19,16 @@ public class TweetManager {
 			query.setLang("en");
 			query.setLocale("en");
 			//query.setPage();
-			query.setCount(20);
+			query.setCount(200);
 			QueryResult result;
-			do {
+			//do {
 				result = twitter.search(query);
 				List<Status> tweets = result.getTweets();
-				for (int i=0; i< 1; i++) { 
-					tweetList.add(tweets.get(i).getText());
-				}
-			} while ((query = result.nextQuery()) != null); 
+				//for (int i=0; i< 100; i++) { 
+				for (Status tweet : tweets)
+					tweetList.add(tweet.getText());
+				//}
+			//} while ((query = result.nextQuery()) != null); 
 		} catch (TwitterException te) {
 			te.printStackTrace();
 			System.out.println("Failed to search tweets: " + te.getMessage());
