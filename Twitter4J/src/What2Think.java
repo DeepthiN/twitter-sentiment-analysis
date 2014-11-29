@@ -1,19 +1,13 @@
 import java.util.ArrayList;
-import wordcram.*;
 
 public class What2Think {
 
-	public static void main(String[] args) {
-		String topic = "#Apple";
+	public String[] generateString(String topic){
+		String [] allTweets = new String[2] ;
 		ArrayList<String> tweets = TweetManager.getTweets(topic);
 		NLP.init();
 		int i = 1;
-		int count = 0;
-		int count0 = 0;
-		int count1 = 0;
-		int count2 = 0;
-		int count3 = 0;
-		int count4 = 0;
+		int count = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
 		StringBuilder positive = new StringBuilder ();
 		StringBuilder negative = new StringBuilder ();
 				
@@ -54,7 +48,13 @@ public class What2Think {
 		System.out.println ("Tweets with positive Sentiment Score = " + positive);
 		System.out.println ("Tweets with negative Sentiment Score = " + negative);
 		
-			 
+		allTweets[0] = positive.toString();
+		allTweets[1] = negative.toString();
+		return allTweets;
+		
+	
+		
+/*			 
 		WordCram wordCram = new WordCram(positive,
 			    ("sans", 1)),
 			    Sizers.byWeight(5, 60),
@@ -64,7 +64,7 @@ public class What2Think {
 			    new SpiralWordNudger());
 			 
 			  while (wordCram.hasMore()) {
-			    wordCram.drawNext();
+			    wordCram.drawNext();*/
 		
 	}
 }

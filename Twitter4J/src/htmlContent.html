@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Twitter Analysis</title>
+</head>
+
+<body>
+<p>Enter the twitter search word</p>
+<input type="text" id="myText" value="Enter text...">
+<button onClick="sendInput()">Submit</button>
+<p id ="demo"> </p>
+
+<script>
+function sendInput() {
+     var x = document.getElementById("myText").value;
+     var y = new Packages.What2Think();
+     var chars= y.generateString(x);
+	document.getElementById("demo").innerHTML = chars;
+}
+</script>
+</body>
+</html>
