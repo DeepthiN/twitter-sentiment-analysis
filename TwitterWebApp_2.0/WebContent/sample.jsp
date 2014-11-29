@@ -6,7 +6,10 @@
 
 <jsp:plugin align="middle" height="400" width="500" type="applet"  code="com.oodproject.WordCloud.class" 
  archive = "Version_1.0.jar, processing-core-1.0.3_0.1.0.jar, WordCram.jar, cue.language.jar"
-name="cloud" codebase="."/>
+name="cloud" codebase=".">
+<jsp:params>
+<jsp:param name="applicationURL" value="Welcome! We need your help to improve wikiHow. Click 'Start' to try an activity below"/> </jsp:params>
+ </jsp:plugin>
 
 <h2 align="center">Enter a twitter Hash tag</h2>
 
