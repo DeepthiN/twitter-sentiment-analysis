@@ -21,7 +21,7 @@ public class What2Think {
 		float avg;
 		for(String tweet : tweets) {
 			tweetPrint = new StringBuilder();
-			tweetPrint.append(i).append(")  ").append(tweet).append(" : ").append(NLP.findSentiment(tweet)).append(",").append((count+=NLP.findSentiment(tweet)));
+			tweetPrint.append(i).append(")  ").append(tweet).append(" : ").append(NLP.findSentiment(tweet));
 			param1.add(i-1, tweetPrint.toString());
 			i++;
 			switch (NLP.findSentiment(tweet)) {
@@ -57,8 +57,6 @@ public class What2Think {
 		param1.add("Tweets with positive Sentiment Score = " + positive);
 		param1.add("Tweets with negative Sentiment Score = " + negative);
 		
-		param1.add(i++,positive.toString());
-		param1.add(i++,negative.toString());
 		return param1;
 	
 /*			 
