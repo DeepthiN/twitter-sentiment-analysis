@@ -11,6 +11,12 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
 public class TweetManager {
+	
+	/*
+	 * Return tweets for a given hashtag
+	 * @param topic : given Hashtag
+	 * @return tweetList tweets as arraylist
+	 */
 
 	public static ArrayList<String> getTweets(String topic) {
 

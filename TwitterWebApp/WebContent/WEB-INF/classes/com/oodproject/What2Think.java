@@ -1,14 +1,22 @@
 package com.oodproject;
+/*
+ * This class serves as 'controller' to retrieve tweets and calculate sentiment score
+ * Uses classes NLP and TweetManager
+ */
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class What2Think {
-	
+	/*
+	 * Generate a list of strings with all tweets, their sentiment scores and some analytics
+	 * @param topic represents hashtag
+	 * @return param1 tweets as list of strings 
+	 */
 
 	public List<String> generateString(String topic){
 		
-		int i = 1;
+		int i = 1, sentimentScore;
 		StringBuilder positive = new StringBuilder ();
 		StringBuilder negative = new StringBuilder ();
 		StringBuilder tweetPrint;
@@ -16,15 +24,17 @@ public class What2Think {
 		ArrayList<String> tweets = TweetManager.getTweets(topic);
 		NLP.init();
 	
-		int count = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+		int totalScore = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
 		
 		float avg;
 		for(String tweet : tweets) {
 			tweetPrint = new StringBuilder();
-			tweetPrint.append(i).append(")  ").append(tweet).append(" : ").append(NLP.findSentiment(tweet));
+			sentimentScore = NLP.findSentiment(tweet);
+			tweetPrint.append(i).append(")  ").append(tweet).append(" : ").append(sentimentScore);
+			totalScore += sentimentScore;
 			param1.add(i-1, tweetPrint.toString());
 			i++;
-			switch (NLP.findSentiment(tweet)) {
+			switch (sentimentScore) {
 			case 0:
 				count0++;
 				negative.append(tweet);
@@ -47,7 +57,7 @@ public class What2Think {
 				
 			}
 		}
-		avg = (float)count/(i-1);
+		avg = (float)totalScore/(i-1);
 		param1.add("Average Sentiment Score = " + avg);
 		param1.add("Tweets with Sentiment Score 0 = " + count0);
 		param1.add("Tweets with Sentiment Score 1 = " + count1);
@@ -58,18 +68,6 @@ public class What2Think {
 		param1.add("Tweets with negative Sentiment Score = " + negative);
 		
 		return param1;
-	
-/*			 
-		WordCram wordCram = new WordCram(positive,
-			    ("sans", 1)),
-			    Sizers.byWeight(5, 60),
-			    Colorers.TwoHuesRandomSats(this),
-			    Anglers.MostlyHoriz,
-			    new CenterClumpWordPlacer(),
-			    new SpiralWordNudger());
-			 
-			  while (wordCram.hasMore()) {
-			    wordCram.drawNext();*/
 		
 	}
 }

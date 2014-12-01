@@ -15,6 +15,14 @@ public class NLP {
 		pipeline = new StanfordCoreNLP("MyPropFile.properties");
 	}
 
+	/*
+	 * Finds sentiment score of a given tweet
+	 * returns sentiment score value as 0, 1, 2, 3 or 4
+	 * Score 0 and 1 represent Negative tweets
+	 * 2 represents Neutral tweets
+	 * 3 and 4 represent Positive tweets
+	 */
+	
 	public static int findSentiment(String tweet) {
 
 		int mainSentiment = 0;

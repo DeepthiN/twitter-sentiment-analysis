@@ -1,5 +1,8 @@
 package com.oodproject;
 
+/*
+ * Uses WordCram API to make a Word cloud of positive and negative tweets
+ */
 
 
 import processing.core.*; 
@@ -8,10 +11,6 @@ import wordcram.*;
 public class WordCloud extends PApplet { 
     
 	private static final long serialVersionUID = 1L;
-	/** 
-     * 
-     */ 
-	
 	
     WordCram words = new WordCram(this); 
     
