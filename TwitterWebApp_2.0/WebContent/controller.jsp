@@ -1,16 +1,14 @@
-<%
-    if (request.getMethod() == "POST") {
-    	What2Think what2Think = new What2Think();
+<%if (request.getMethod() == "POST") {
+    	TweetAnalyzer what2Think = new TweetAnalyzer();
     	List<String> stringList=  what2Think.generateString("#Android");
     
         for (int i=0; i < stringList.size()-2; i++) {
         	out.println(stringList.get(i) + "<br> <br>");
         	}
         out.println(request.getParameter("userId"));
-    }
-%>
+    }%>
 <%@ page import="com.oodproject.TweetManager" %>
-<%@ page import="com.oodproject.What2Think" %>
+<%@ page import="com.oodproject.TweetAnalyzer" %>
 <%@ page import="com.oodproject.WordCloud" %>
 <%@ page import="java.util.*" %>
 <%@ page import= "static java.lang.System.out" %>
