@@ -25,15 +25,20 @@
 <html>
 <head>
 <title>Twitter App</title>
+<link rel="stylesheet" type="text/css" href="resources/style.css">
 </head>
 <body>
-	<h2 align="center">Please Enter a twitter Hash tag</h2>
+	<img src="resources/twitter-logo-bird.gif" style="display: block;margin-left: auto;margin-right: auto;height:500px">
+	<h3 align="center">Enter a Hash tag to get tweets</h3>
 
-	<form name="myForm" method="post">
-		<input type="text" name="hashtag" id="hashtag" value="#" /> <input
-			type="submit" value="Submit" onClick="showButton()" />
+	<form name="myForm" method="post" >
+		<input type="text" name="hashtag" id="hashtag" value="#" size="20" /> 
+		
+		 <br>
+   		 <br>
+		<input type="submit" value="Submit" onClick="showButton()" style="display: block;margin-left: auto;margin-right: auto;" />
 	</form>
-
+   
 	<form id="appletForm" name="showApplet" action="WordCloudApplet.jsp">
 		<input type="submit" value="Show Word Cloud">
 	</form>
