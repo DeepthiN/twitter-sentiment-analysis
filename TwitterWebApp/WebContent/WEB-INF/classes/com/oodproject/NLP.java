@@ -23,7 +23,7 @@ public class NLP {
 	 * 3 and 4 represent Positive tweets
 	 */
 	
-	public static int findSentiment(String tweet) {
+	public int findSentiment(String tweet) {
 
 		int mainSentiment = 0;
 		if (tweet != null && tweet.length() > 0) {

@@ -15,15 +15,17 @@ public class TweetAnalyzer {
 	 * @param topic represents hashtag
 	 * @return param1 tweets as list of strings
 	 */
-
+	private TweetManager tweetManager;
+	private NLP nlp;
 	public List<String> generateString(String topic) {
-
+		tweetManager =  new TweetManager();
+		nlp = new NLP();
 		int i = 1, sentimentScore;
 		StringBuilder positive = new StringBuilder();
 		StringBuilder negative = new StringBuilder();
 		StringBuilder tweetPrint;
 		List<String> param1 = new ArrayList<String>();
-		ArrayList<String> tweets = TweetManager.getTweets(topic);
+		ArrayList<String> tweets = tweetManager.getTweets(topic);
 		NLP.init();
 
 		int totalScore = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
@@ -31,7 +33,7 @@ public class TweetAnalyzer {
 		float avg;
 		for (String tweet : tweets) {
 			tweetPrint = new StringBuilder();
-			sentimentScore = NLP.findSentiment(tweet);
+			sentimentScore = nlp.findSentiment(tweet);
 			tweetPrint.append(i).append(")  ").append(tweet).append(" : ")
 					.append(sentimentScore);
 			totalScore += sentimentScore;

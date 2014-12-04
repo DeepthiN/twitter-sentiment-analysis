@@ -18,7 +18,7 @@ public class TweetManager {
 	 * @return tweetList tweets as arraylist
 	 */
 
-	public static ArrayList<String> getTweets(String topic) {
+	public ArrayList<String> getTweets(String topic) {
 
 		Twitter twitter = new TwitterFactory().getInstance();
 		ArrayList<String> tweetList = new ArrayList<String>();
