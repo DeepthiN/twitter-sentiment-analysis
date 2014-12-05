@@ -17,10 +17,11 @@ public class TweetAnalyzer {
 	 */
 	private TweetManager tweetManager;
 	private NLP nlp;
-	public List<String> generateString(String topic) {
+	public TweetResults generateString(String topic) {
 		tweetManager =  new TweetManager();
 		nlp = new NLP();
 		int i = 1, sentimentScore;
+		TweetResults tweetResult = new TweetResults();
 		StringBuilder positive = new StringBuilder();
 		StringBuilder negative = new StringBuilder();
 		StringBuilder tweetPrint;
@@ -28,7 +29,7 @@ public class TweetAnalyzer {
 		ArrayList<String> tweets = tweetManager.getTweets(topic);
 		NLP.init();
 
-		int totalScore = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
+		float totalScore = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
 
 		float avg;
 		for (String tweet : tweets) {
@@ -62,17 +63,29 @@ public class TweetAnalyzer {
 
 			}
 		}
+		
+		tweetResult.tweets = param1;
+		param1.add("Tweets with positive Sentiment Score = " + positive);
+		param1.add("Tweets with negative Sentiment Score = " + negative);
 		avg = (float) totalScore / (i - 1);
+		
 		param1.add("Average Sentiment Score = " + avg);
 		param1.add("Tweets with Sentiment Score 0 = " + count0);
 		param1.add("Tweets with Sentiment Score 1 = " + count1);
 		param1.add("Tweets with Sentiment Score 2 = " + count2);
 		param1.add("Tweets with Sentiment Score 3 = " + count3);
 		param1.add("Tweets with Sentiment Score 4 = " + count4);
-		param1.add("Tweets with positive Sentiment Score = " + positive);
-		param1.add("Tweets with negative Sentiment Score = " + negative);
+		
+		tweetResult.scores = new ArrayList<Float>();
+		tweetResult.scores.add(avg);
+		tweetResult.scores.add(count0);
+		tweetResult.scores.add(count1);
+		tweetResult.scores.add(count2);
+		tweetResult.scores.add(count3);
+		tweetResult.scores.add(count4);
+		
 
-		return param1;
+		return tweetResult;
 
 	}
 }
