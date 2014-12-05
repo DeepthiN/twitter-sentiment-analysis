@@ -31,7 +31,7 @@ public class TweetAnalyzer {
 
 		float totalScore = 0, count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0;
 
-		float avg;
+		float avg, NSR;
 		for (String tweet : tweets) {
 			tweetPrint = new StringBuilder();
 			sentimentScore = nlp.findSentiment(tweet);
@@ -64,20 +64,22 @@ public class TweetAnalyzer {
 			}
 		}
 		
-		tweetResult.tweets = param1;
+		
 		param1.add("Tweets with positive Sentiment Score = " + positive);
 		param1.add("Tweets with negative Sentiment Score = " + negative);
 		avg = (float) totalScore / (i - 1);
+		NSR = ((count3+count4) - (count0+count1))/(float) totalScore;
 		
+		param1.add("Net Sentiment Rate (NSR) = " + NSR);
 		param1.add("Average Sentiment Score = " + avg);
 		param1.add("Tweets with Sentiment Score 0 = " + count0);
 		param1.add("Tweets with Sentiment Score 1 = " + count1);
 		param1.add("Tweets with Sentiment Score 2 = " + count2);
 		param1.add("Tweets with Sentiment Score 3 = " + count3);
 		param1.add("Tweets with Sentiment Score 4 = " + count4);
+		tweetResult.tweets = param1;
 		
 		tweetResult.scores = new ArrayList<Float>();
-		tweetResult.scores.add(avg);
 		tweetResult.scores.add(count0);
 		tweetResult.scores.add(count1);
 		tweetResult.scores.add(count2);
