@@ -17,6 +17,8 @@ String negative;
         	out.println("Sorry, we couldn't find tweets for "+ request.getParameter("hashtag") +
         			"<br> <br>");
         } else {
+        out.println("Here are some recent tweets for "+ request.getParameter("hashtag") +
+        			"<br> <br>");
         for (int i=0; i < stringList.size(); i++) {
         	if (stringList.get(i).length() < 150) { 
         	out.println(stringList.get(i) + "<br> <br>");
@@ -63,10 +65,10 @@ String negative;
 		labels : [ "Very Negative", "Negative", "Neutral", "Positive",
 				"Very Positive" ],
 		datasets : [ {
-			fillColor : "rgba(220,200,220,0.5)",
-			strokeColor : "rgba(220,200,220,0.8)",
-			highlightFill : "rgba(220,200,220,0.75)",
-			highlightStroke : "rgba(220,200,220,1)",
+			fillColor : "rgba(85,172,238,0.5)",
+			strokeColor : "rgba(85,172,238,0.8)",
+			highlightFill : "rgba(85,172,238,0.75)",
+			highlightStroke : "rgba(85,172,238,1)",
 			data :
 <% 
 	TweetAnalyzer tweetAnalyzer = new TweetAnalyzer();
