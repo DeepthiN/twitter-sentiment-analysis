@@ -6,8 +6,18 @@
 	<!-- Retrieve negative and positive tweets from session storage, and use them to generate two word clouds -->
 	<%
 		String positive, negative;
-		positive = session.getAttribute("positive").toString();
-		negative = session.getAttribute("negative").toString();
+
+		try {
+			positive = session.getAttribute("positive").toString();
+		} catch (Exception e) {
+			positive = "";
+		}
+
+		try {
+			negative = session.getAttribute("negative").toString();
+		} catch (Exception e) {
+			negative = "";
+		}
 	%>
 
 	<p>Positive tweets</p>
