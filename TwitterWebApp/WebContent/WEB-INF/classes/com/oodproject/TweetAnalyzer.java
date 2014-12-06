@@ -77,15 +77,15 @@ public class TweetAnalyzer {
 		param1.add("Tweets with Sentiment Score 2 = " + count2);
 		param1.add("Tweets with Sentiment Score 3 = " + count3);
 		param1.add("Tweets with Sentiment Score 4 = " + count4);
-		tweetResult.tweets = param1;
+		tweetResult.setTweets(param1);
 		
-		tweetResult.scores = new ArrayList<Float>();
-		tweetResult.scores.add(count0);
-		tweetResult.scores.add(count1);
-		tweetResult.scores.add(count2);
-		tweetResult.scores.add(count3);
-		tweetResult.scores.add(count4);
-		
+		List<Float> scores = new ArrayList<Float>();
+		scores.add(count0);
+		scores.add(count1);
+		scores.add(count2);
+		scores.add(count3);
+		scores.add(count4);
+		tweetResult.setScores(scores);
 
 		return tweetResult;
 

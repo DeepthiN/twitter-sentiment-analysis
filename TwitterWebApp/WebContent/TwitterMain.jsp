@@ -12,7 +12,7 @@ String negative;
 	if (request.getMethod() == "POST") {
         TweetAnalyzer tweetAnalyzer = new TweetAnalyzer();
         TweetResults tweetResult = tweetAnalyzer.generateString(request.getParameter("hashtag"));
-        List <String> stringList = tweetResult.tweets;
+        List <String> stringList = tweetResult.getTweets();
         if (stringList.size() < 10) {
         	out.println("Sorry, we couldn't find tweets for "+ request.getParameter("hashtag") +
         			"<br> <br>");
@@ -73,7 +73,7 @@ String negative;
 <% 
 	TweetAnalyzer tweetAnalyzer = new TweetAnalyzer();
 	TweetResults tweetResult = tweetAnalyzer.generateString(request.getParameter("hashtag"));
-	out.println(tweetResult.scores);%>
+	out.println(tweetResult.getScores());%>
 	}
 
 		]
@@ -99,7 +99,7 @@ String negative;
 	</div>
 	<img src="resources/twitter-logo-bird.gif"
 		style="display: block; margin-left: auto; margin-right: auto; height: 500px">
-	<h3 align="center">Enter a Hash tag to get tweets</h3>
+	<h3 align="center">Enter a key word to get tweets</h3>
 
 	<form name="myForm" method="post">
 		<input type="text" name="hashtag" id="hashtag" value="#" size="20" />
